@@ -8,6 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <link rel = "stylesheet" href = "css/style.css">
     <?php include 'estrutura.php';?>
+
 </head>
 <body>
     <div class="main-content">
@@ -18,10 +19,10 @@
 		<br>
 		<br>
 		<br>
-		<form action ="cadastrar.php" method="POST">
+			<ul id ="usuarios"></ul>
 			<p>
 			<center>
-				<input type="text" name="emailc" placeholder="E-mail" class="lblnormal">
+				<input type="text"placeholder="E-mail" class="lblnormal">
 			</center>
 			</p>
 			<p>
@@ -83,5 +84,8 @@
 		<br>
     </div>
     
+
+	<script src ="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src ="javascript/main.js"></script>
 </body>
 </html>
