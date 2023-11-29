@@ -22,23 +22,23 @@
 			<ul id ="usuarios"></ul>
 			<p>
 			<center>
-				<input type="text"placeholder="E-mail" class="lblnormal">
+				<input type="text" id ="email" placeholder="E-mail" class="lblnormal">
 			</center>
 			</p>
 			<p>
 			<center>
-				<input type="text" name="usuario" placeholder="Usuário" class="lblnormal">
+				<input type="text" id="nome" name="usuario" placeholder="Usuário" class="lblnormal">
 			</center>
 			</p>
 			<center>
-				<input type="password" name="senhac" placeholder="Senha" class="lblnormal">
+				<input type="password" id="senha" name="senhac" placeholder="Senha" class="lblnormal">
 			</center>
 			</p>
 			<br>
 			<br>
 			<p>
 			<center>
-				<button type="submit" class="btn-cadastrar" width="" id="entra">Cadastrar-se</button>
+				<button type="submit" class="btn-cadastrar" width="" id="cadastrar">Cadastrar-se</button>
 			</center>
 			</p>
 		</form>
@@ -85,7 +85,7 @@
     </div>
     
 
-	<script src ="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 	<script src ="javascript/main.js"></script>
 </body>
 </html>
