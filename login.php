@@ -41,19 +41,9 @@
 				<button type="submit" class="btn-cadastrar" width="" id="cadastrar">Cadastrar-se</button>
 			</center>
 			</p>
-		</form>
 
-		<?php if (isset($mensagem)) : ?>
-        <div class="alert">
-            <p><?php echo $mensagem; ?></p>
-            <button onclick="fecharMensagem()">Fechar</button>
-        </div>
-		<?php endif; ?>
-		<script>
-			function fecharMensagem() {
-				document.querySelector('.alert').style.display = 'none';
-			}
-		</script>
+		<div id="dados-usuario-cadastrado">
+		</div>
 
 		
 		<h1 style="padding: 10px 30px">Entrar</h1>
