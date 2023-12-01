@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 20/10/2023 às 23:32
+-- Tempo de geração: 02/12/2023 às 00:39
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.2.4
 
@@ -41,24 +41,14 @@ CREATE TABLE `comentarios` (
 --
 
 INSERT INTO `comentarios` (`id`, `id_post`, `nome`, `comentario`, `data`, `hora`) VALUES
-(1, 25, 'Usuario de Teste', '        teste', '22/01/2023', '17:17:59'),
-(2, 26, 'Usuario de Teste', '        aaiaia', '23/01/2023', '21:09:47'),
-(3, 26, 'Usuario de Teste', '        cccccc', '23/01/2023', '21:10:44'),
-(4, 26, 'Usuario de Teste', '        aaaaaaa', '23/01/2023', '21:10:47'),
-(5, 26, 'Usuario de Teste', '        kkkkkkkkkk', '23/01/2023', '21:10:51'),
-(6, 1, 'Usuario de Teste2', '        Qualquer coisa', '26/01/2023', '22:15:01'),
-(7, 1, 'Usuario de Teste2', '        Nehuma coisa', '26/01/2023', '22:15:08'),
-(8, 1, 'Usuario de Teste2', '        Nehuma coisa', '26/01/2023', '22:15:26'),
-(9, 33, 'Usuario de Teste2', '        Tá tudo bugado kkkkkkkk', '26/01/2023', '22:46:57'),
-(10, 40, 'eu', '        Que demais', '27/01/2023', '12:45:22'),
-(11, 42, 'Usuario de Teste2', '        Não faço ideia meu nobre.', '27/01/2023', '13:01:30'),
-(12, 44, 'oi', '        Agora é comprar uma casa nova.', '27/01/2023', '13:10:13'),
-(13, 44, 'oi', '        Agora é comprar uma casa nova.', '27/01/2023', '13:10:21'),
-(14, 43, 'oi', '        Vende no mercado livre.', '27/01/2023', '13:10:51'),
-(15, 42, 'eu', '        Testando', '20/09/2023', '15:47:19'),
-(16, 48, 'eu', '        kkkkkkkkkk', '26/09/2023', '12:49:59'),
-(17, 44, 'eu', '        duplica?', '26/09/2023', '14:00:19'),
-(18, 42, 'eu', 'eita\r\nk\r\n', '18/10/2023', '17:09:21');
+(12, 1, 'igor', 'teste', 'agora', 'nao'),
+(13, 42, 'eita', 'funfa', 'hoje', 'agora'),
+(25, 1, 'Nome do Usuário', 'Eita', 'dataFormatada', 'horaFormatada'),
+(26, 42, 'Nome do Usuário', 'Qual o bug da vez?', 'dataFormatada', 'horaFormatada'),
+(27, 1, 'Nome do Usuário', 'Será que agora foi?', 'dataFormatada', 'horaFormatada'),
+(28, 43, 'Nome do Usuário', 'Que felicidade', 'dataFormatada', 'horaFormatada'),
+(29, 53, 'Nome do Usuário', 'Testando o último aqui', 'dataFormatada', 'horaFormatada'),
+(30, 52, 'Nome do Usuário', 'Teste do penúltimo', 'dataFormatada', 'horaFormatada');
 
 -- --------------------------------------------------------
 
@@ -77,31 +67,16 @@ CREATE TABLE `curtidas` (
 
 INSERT INTO `curtidas` (`id`, `id_post`) VALUES
 (1, 17),
-(2, 25),
-(3, 25),
-(4, 25),
-(5, 25),
-(6, 25),
-(7, 26),
-(8, 26),
-(9, 26),
-(10, 17),
-(11, 1),
-(12, 33),
-(13, 35),
-(14, 39),
-(15, 40),
-(16, 36),
-(17, 42),
-(18, 44),
-(19, 43),
-(20, 42),
-(21, 44),
-(22, 44),
-(23, 44),
-(24, 48),
-(25, 43),
-(26, 49);
+(2, 1),
+(26, 49),
+(27, 49),
+(28, 49),
+(29, 49),
+(30, 49),
+(31, 0),
+(32, 42),
+(33, 17),
+(34, 17);
 
 -- --------------------------------------------------------
 
@@ -129,9 +104,9 @@ INSERT INTO `posts` (`id`, `titulo`, `descricao`, `imagem`, `data`, `hora`, `pos
 (42, 'Como colocar mais ram no pc?', 'Titulo auto-explicativo', 'imagens/uploads/2016-07-19-memoria-ram-1.webp', '27/01/2023', '13:01:14', 'Usuario de Teste2', 'Hardware'),
 (43, 'Comprei o processador pra placa mãe errada e agora?', 'Esqueci de ver na hora.', 'imagens/uploads/download.jfif', '27/01/2023', '13:08:15', 'Usuario de Teste2', 'Intel'),
 (44, 'Eu já sabia que Amd esquentava, mas isso é passar dos limites', 'Tocou fogo na casa.', 'imagens/uploads/vga-esquentando.jpg', '27/01/2023', '13:09:32', 'Usuario de Teste2', 'Radeon'),
-(46, 'gt 710', 'top demais kkkk', 'imagens/uploads/', '26/09/2023', '12:22:12', 'eu', 'Geforce'),
-(48, 'teste', 'foto menor', 'imagens/uploads/592538.jpg', '26/09/2023', '12:49:42', 'eu', 'Intel'),
-(49, 'teste sem foto', 'uiui', 'imagens/uploads/', '26/09/2023', '14:06:14', 'eu', 'Software');
+(50, 'TEste', 'tttteeeee', 'imagens/uploads/', '01/11/2023', '15:03:42', 'oi', ''),
+(52, 'string', 'string', 'string', 'string', 'string', '0', 'string'),
+(53, 'TesteAPI', 'descricaoAPI', '', '01/12/2023', '00:00', '1', 'API');
 
 -- --------------------------------------------------------
 
@@ -154,11 +129,12 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (`id`, `nome`, `email`, `senha`, `adm`, `foto`) VALUES
 (1, 'eu', 'eu@eu.com', 'eu', 1, 'imagens/fotosdeperfil/eu.jpg'),
-(20, '', 'oi', '', 0, ''),
-(22, 'bam', 'bambam@bam.com', 'bam', 0, 'imagens/fotosdeperfil/bam.jpg'),
-(23, 'igor', 'igor_stm@yahoo.com.br', 'igor', 0, ''),
-(24, '', '', '', 0, ''),
-(25, 'oi', 'oi@oi.com', 'oi', 0, 'imagens/fotosdeperfil/oi.jpg');
+(26, 'nommeeee', 'emm@m.co', 'se', 1, 'dlajdlfj'),
+(32, 'teste', 'igor_stm@yahoo.com.br', '123', 0, ''),
+(33, 'Jarlison', 'jarlison@ufopa.edu.br', 'jarlison', 0, ''),
+(34, 'oi', 'igor.oliveira@discente.ufopa.edu.br', 'oi', 0, ''),
+(35, 'xablau', 'xa.com', 'xablau', 0, 'pin'),
+(36, 'aa', 'oi@oi.com', 'a', 0, '');
 
 --
 -- Índices para tabelas despejadas
@@ -196,25 +172,25 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de tabela `comentarios`
 --
 ALTER TABLE `comentarios`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT de tabela `curtidas`
 --
 ALTER TABLE `curtidas`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT de tabela `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
