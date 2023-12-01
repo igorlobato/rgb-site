@@ -1,5 +1,8 @@
 $(function() {
 
+    var $usuarios = $('#usuarios');
+    var $postagens = $('#postagens');
+
     // $.ajax({
     //     type: 'GET',
     //     url: 'http://localhost:3000/usuarios',
@@ -40,5 +43,25 @@ $(function() {
                 alert('erro ao cadastrar usuário');
             }
         });
+    });
+
+    $.ajax({
+        type: 'GET',
+        url: 'http://localhost:3000/posts',
+        success: function(postagens) {
+            $.each(postagens, function(i, postagem) {
+                $postagens.append('<li>Titulo: <a href="?pagina=posts&id=' + postagem.id + '">' + postagem.titulo + '</a>' +
+                '<br> Tópico: ' + postagem.topico +
+                '<br> Descricao: ' + postagem.descricao +
+                '<br><br> <img src="' + postagem.imagem + '" alt="Imagem" class="foto"> <br>' + 
+                '<br> data: ' + postagem.data + 
+                '<br> hora: ' + postagem.hora + 
+                '<br> postador: ' + postagem.postador +
+                '<br>' + '</li>');
+            });
+        },
+        error: function() {
+            alert('erro ao carregar postagens');
+        }
     });
 });

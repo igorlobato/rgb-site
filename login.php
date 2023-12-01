@@ -19,7 +19,6 @@
 		<br>
 		<br>
 		<br>
-			<ul id ="usuarios"></ul>
 			<p>
 			<center>
 				<input type="text" id ="email" placeholder="E-mail" class="lblnormal">
