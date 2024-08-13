@@ -1,3 +1,15 @@
+<?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+include 'conexao.php';
+
+if(!isset($_SESSION)) {
+  session_start();
+}
+?>
+
+<link rel="shortcut icon" type="imagex/png" href="imagens/logo.png">
 <nav class="navbar navbar-expand-lg bg-dark" style="z-index: 2;">
 			<div class="container-fluid">
 			  <a id="rgb" href="index.php" style=color:orange>
@@ -21,7 +33,7 @@
 					if ( (isset($_SESSION['nome'])) && ($_SESSION['nome'] != '') ) {
 						if (isset($_SESSION['id'])) {
 							$idUser = $_SESSION['id'];
-							$seleciona = mysqli_query($mysqli, "SELECT foto FROM usuarios WHERE id = '$idUser'");
+							$seleciona = mysqli_query($mysqli, "SELECT foto FROM Usuarios WHERE id = '$idUser'");
 							$linha = mysqli_fetch_assoc($seleciona);
 					
 							$fotoPerfil = $linha['foto'];
@@ -61,65 +73,66 @@
 		  </nav>
 
 
-    <div class="sidebar">
-        <div class="flex-shrink-0 p-3" style="width: 280px;">
-            <a href="/" class="d-flex align-items-center pb-3 mb-3 link-body-emphasis text-decoration-none border-bottom">
-            <svg class="bi pe-none me-2" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
-            <span class="fs-5 fw-semibold">Collapsible</span>
-            </a>
-            <ul class="list-unstyled ps-0">
-            <li class="mb-1">
-                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="false">
-                Home
-                </button>
-                <div class="collapse" id="home-collapse" style="">
-                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Overview</a></li>
-                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Updates</a></li>
-                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Reports</a></li>
-                </ul>
-                </div>
-            </li>
-            <li class="mb-1">
-                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
-                Dashboard
-                </button>
-                <div class="collapse" id="dashboard-collapse" style="">
-                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Overview</a></li>
-                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Weekly</a></li>
-                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Monthly</a></li>
-                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Annually</a></li>
-                </ul>
-                </div>
-            </li>
-            <li class="mb-1">
-                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
-                Orders
-                </button>
-                <div class="collapse" id="orders-collapse" style="">
-                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">New</a></li>
-                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Processed</a></li>
-                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Shipped</a></li>
-                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Returned</a></li>
-                </ul>
-                </div>
-            </li>
-            <li class="border-top my-3"></li>
-            <li class="mb-1">
-                <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
-                Account
-                </button>
-                <div class="collapse" id="account-collapse" style="">
-                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">New...</a></li>
-                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Profile</a></li>
-                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Settings</a></li>
-                    <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Sign out</a></li>
-                </ul>
-                </div>
-            </li>
-            </ul>
+      <div class="sidebar">	
+    <a href="index.php" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom" style="margin-top: 65px;">
+      <svg class="bi pe-none me-2" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
+      <span class="fs-5 fw-semibold">Conteúdos</span>
+    </a>
+    <ul class="list-unstyled ps-0">
+      <li class="mb-1">
+        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="false">
+          Processadores
+        </button>
+        <div class="collapse" id="home-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded topic">Intel</a></li>
+            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded topic">Amd</a></li>
+            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded topic">Outros</a></li>
+          </ul>
         </div>
-    </div>
+      </li>
+      <li class="mb-1">
+        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
+          Placas de Vídeo
+        </button>
+        <div class="collapse" id="dashboard-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded topic">Geforce</a></li>
+            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded topic">Radeon</a></li>
+            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded topic">Outros</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="mb-1">
+        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
+          Geral
+        </button>
+        <div class="collapse" id="orders-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded topic">Hardware</a></li>
+            <li><a href="#" class="link-dark d-inline-flex text-decoration-none rounded topic">Software</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="border-top my-3"></li>
+    <?php 
+    if( (isset($_SESSION['nome'])) && ($_SESSION['nome'] != '') ) {
+      echo'
+      <li class="mb-1">
+        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
+          Conta
+        </button>
+        <div class="collapse" id="account-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a href="?pagina=editarperfil" class="link-dark d-inline-flex text-decoration-none rounded">Perfil</a></li>
+            <li><a href="post.php" class="link-dark d-inline-flex text-decoration-none rounded">Novo Post</a></li>
+            <li><a href="logout.php" class="link-dark d-inline-flex text-decoration-none rounded">Sair</a></li>
+          </ul>
+        </div>
+      </li>';
+    }
+    ?>
+    </ul>
+  </div>
+
+  <script src ="javascript/main.js"></script>

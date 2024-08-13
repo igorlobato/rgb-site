@@ -1,3 +1,45 @@
+<?php 
+include 'conexao.php';
+
+if(!isset($_SESSION)) {
+    session_start();
+}
+
+if(isset($_POST['email']) && isset($_POST['senha'])) {
+
+    if(empty($_POST['email'])){
+        echo "Preencha seu e-mail";
+    } else if(empty($_POST['senha'])){
+        echo "Preencha sua senha";
+    } else{
+        $email = $mysqli->real_escape_string($_POST['email']);
+        $senha = $mysqli->real_escape_string($_POST['senha']);
+
+        $sql_code = "SELECT * FROM Usuarios WHERE email = '$email' AND senha = '$senha'";
+        $sql_query = $mysqli->query($sql_code) or die("Falha na execução do código SQL: " . $mysqli->error);
+
+        $quantidade = $sql_query->num_rows;
+
+        if($quantidade == 1){
+            $usuario = $sql_query->fetch_assoc();
+
+            if(!isset($_SESSION)){
+                session_start();
+            }
+            $_SESSION['id'] = $usuario['id'];
+            $_SESSION['email'] = $usuario['email'];
+            $_SESSION['nome'] = $usuario['nome'];
+            $_SESSION['adm'] = $usuario['adm'];
+            $_SESSION['foto'] = $usuario['foto'];
+            
+            header("Location: index.php");
+            exit;
+        } else{
+            echo "Falha ao logar! E-mail ou senha incorretos";
+        }
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,9 +50,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <link rel = "stylesheet" href = "css/style.css">
     <?php include 'estrutura.php';?>
-
 </head>
 <body>
+
     <div class="main-content">
         <h1 style="padding: 10px 30px">Cadastrar-se</h1>
         <br>
