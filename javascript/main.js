@@ -41,11 +41,16 @@ $(function() {
                 let userData = '<p>nome: ' + usuario.nome + ', email: ' + usuario.email + ', senha: ' + usuario.senha +
                     ', adm: ' + usuario.adm + ', foto: ' + usuario.foto + '</p>';
                 $('#dados-usuario-cadastrado').html(userData);
+                $('#modalUsuarioCadastrado').modal('show');
             },
             error: function() {
                 alert('erro ao cadastrar usuário');
             }
         });
+    });
+
+    $('#btnEntrar').on('click', function() {
+        location.reload(); 
     });
 
     if (postId) {

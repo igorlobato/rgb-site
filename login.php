@@ -53,6 +53,7 @@ if(isset($_POST['email']) && isset($_POST['senha'])) {
 </head>
 <body>
 
+
     <div class="main-content">
         <h1 style="padding: 10px 30px">Cadastrar-se</h1>
         <br>
@@ -79,7 +80,30 @@ if(isset($_POST['email']) && isset($_POST['senha'])) {
 			<br>
 			<p>
 			<center>
-				<button type="submit" class="btn-cadastrar" width="" id="cadastrar">Cadastrar-se</button>
+				<!-- Botão de cadastro -->
+			<p>
+				<center>
+					<button type="submit" class="btn-cadastrar" width="" id="cadastrar">Cadastrar-se</button>
+				</center>
+			</p>
+
+			<!-- Modal para mostrar os dados do usuário cadastrado -->
+			<div id="modalUsuarioCadastrado" class="modal" tabindex="-1">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title">Cadastro Concluído</h5>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						</div>
+						<div class="modal-body">
+							<p id="dados-usuario-cadastrado"></p>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-primary" id="btnEntrar">Entrar</button>
+						</div>
+					</div>
+				</div>
+			</div>
 			</center>
 			</p>
 

@@ -27,7 +27,7 @@ if(!isset($_SESSION)) {
 			  
 			  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 				
-				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0" style="margin-left: 20px">
 
 				<?php
 					if ( (isset($_SESSION['nome'])) && ($_SESSION['nome'] != '') ) {
@@ -136,3 +136,5 @@ if(!isset($_SESSION)) {
   </div>
 
   <script src ="javascript/main.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
