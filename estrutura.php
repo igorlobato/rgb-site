@@ -42,7 +42,7 @@ if(!isset($_SESSION)) {
 								$fotoPerfil = 'imagens/fotosdeperfil/foto_perfil0.jpg'; 
 							}
 					
-							echo '<a href="?pagina=editarperfil"><img src="' . $fotoPerfil . '" alt="Foto de Perfil" style="width: 25px; height: 25px; border-radius: 50%; margin-right: 10px;"></a>';
+							echo '<a href="editarperfil.php"><img src="' . $fotoPerfil . '" alt="Foto de Perfil" style="width: 25px; height: 25px; border-radius: 50%; margin-right: 10px;"></a>';
 						}
 
 
@@ -52,10 +52,11 @@ if(!isset($_SESSION)) {
 					}
 						echo '</li>';
 						echo '<li> <a href="logout.php" style="padding: 10px 10px; text-decoration: none; color:red;">Sair</a>';
+            echo '<li style="margin-left: 30px;"><a href="novopost.php" style="padding: 10px 10px; text-decoration: none; color:white;">Novo Post</a></li>';
 					} else { 
 						echo '
 						<li class="nav-item">
-						<a class="nav-link active" aria-current="page" href="login.php"
+						<a id="entrarcadastrar" class="nav-link active" aria-current="page" href="login.php"
 						 style="color:White; padding: 10px 10px;">Entrar/Cadastrar-se</a>
 						  </li>
 						';
@@ -124,8 +125,8 @@ if(!isset($_SESSION)) {
         </button>
         <div class="collapse" id="account-collapse">
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li><a href="?pagina=editarperfil" class="link-dark d-inline-flex text-decoration-none rounded">Perfil</a></li>
-            <li><a href="post.php" class="link-dark d-inline-flex text-decoration-none rounded">Novo Post</a></li>
+            <li><a href="editarperfil.php" class="link-dark d-inline-flex text-decoration-none rounded">Perfil</a></li>
+            <li><a href="novopost.php" class="link-dark d-inline-flex text-decoration-none rounded">Novo Post</a></li>
             <li><a href="logout.php" class="link-dark d-inline-flex text-decoration-none rounded">Sair</a></li>
           </ul>
         </div>
@@ -136,5 +137,7 @@ if(!isset($_SESSION)) {
   </div>
 
   <script src ="javascript/main.js"></script>
+  <script src ="javascript/scriptsfuncao.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel = "stylesheet" href = "css/style.css">

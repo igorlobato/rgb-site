@@ -103,7 +103,7 @@ $(function() {
                                         comentariosHTML = 'Sem comentários';
                                     }
         
-                                    $postagens.append('<li>Titulo: <a href="?pagina=posts&id=' + postagem.id + '">' + postagem.titulo + '</a>' +
+                                    $postagens.append('<div>Titulo: <a href="?pagina=posts&id=' + postagem.id + '">' + postagem.titulo + '</a>' +
                                         '<br> Tópico: ' + postagem.topico +
                                         '<br> Descricao: ' + postagem.descricao +
                                         '<br><br> <img src="' + postagem.imagem + '" alt="Imagem" class="foto"> <br>' +
@@ -111,13 +111,7 @@ $(function() {
                                         '<br> hora: ' + postagem.hora +
                                         '<br> postador: ' + postagem.postador +
                                         '<br> Curtidas: ' + likesCount +
-                                        '<br> Comentários: ' + comentariosHTML +
-                                        '<br>' + 
-                                        '<form id="formComentario' + postagem.id + '">' +
-                                        '<input type="text" id="novoComentario' + postagem.id + '" placeholder="Adicione um comentário">' +
-                                        '<button type="button" onclick="adicionarComentario(' + postagem.id + ')">Comentar</button>' +
-                                        '</form>' +
-                                        '</li>');
+                                        '</div><br>');
                                 },
                                 error: function() {
                                     alert('Erro ao carregar comentários');
@@ -160,3 +154,20 @@ function adicionarComentario(idPost) {
         }
     });
 }
+
+/* Versão completa do post
+$postagens.append('<div>Titulo: <a href="?pagina=posts&id=' + postagem.id + '">' + postagem.titulo + '</a>' +
+                                        '<br> Tópico: ' + postagem.topico +
+                                        '<br> Descricao: ' + postagem.descricao +
+                                        '<br><br> <img src="' + postagem.imagem + '" alt="Imagem" class="foto"> <br>' +
+                                        '<br> data: ' + postagem.data +
+                                        '<br> hora: ' + postagem.hora +
+                                        '<br> postador: ' + postagem.postador +
+                                        '<br> Curtidas: ' + likesCount +
+                                        '<br> Comentários: ' + comentariosHTML +
+                                        '<br>' + 
+                                        '<form id="formComentario' + postagem.id + '">' +
+                                        '<input type="text" id="novoComentario' + postagem.id + '" placeholder="Adicione um comentário">' +
+                                        '<button type="button" onclick="adicionarComentario(' + postagem.id + ')">Comentar</button>' +
+                                        '</div><br>');
+                                        */

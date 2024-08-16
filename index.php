@@ -12,6 +12,8 @@
 
 <body>
     <div class="main-content">
+        <h2>Posts mais recentes</h2>
+        <br>
         <ul id="postagens"></ul>
     </div>
     
