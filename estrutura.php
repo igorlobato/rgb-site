@@ -37,13 +37,14 @@ if(!isset($_SESSION)) {
 							$linha = mysqli_fetch_assoc($seleciona);
 					
 							$fotoPerfil = $linha['foto'];
-					
-							if (is_null($fotoPerfil)) {
-								$fotoPerfil = 'imagens/fotosdeperfil/foto_perfil0.jpg'; 
-							}
-					
-							echo '<a href="editarperfil.php"><img src="' . $fotoPerfil . '" alt="Foto de Perfil" style="width: 25px; height: 25px; border-radius: 50%; margin-right: 10px;"></a>';
+
+              if (empty($fotoPerfil)) {
+                  $fotoPerfil = 'imagens/fotosdeperfil/foto_perfil0.jpg'; 
+              }
+
+echo '<a href="editarperfil.php"><img src="' . $fotoPerfil . '" alt="Foto de Perfil" style="width: 25px; height: 25px; border-radius: 50%; margin-right: 10px;"></a>';
 						}
+            
 
 
 						echo '<li class="nome-user">' . $_SESSION['nome'];

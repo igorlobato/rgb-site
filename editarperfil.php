@@ -27,7 +27,7 @@
         // Verifique se a foto de perfil existe
         $fotoPerfil = $linha['foto'];
 
-        if (is_null($fotoPerfil)) {
+        if (empty($fotoPerfil)) {
             $fotoPerfil = 'imagens/fotosdeperfil/foto_perfil0.jpg'; // Use a imagem padrão
         }
 

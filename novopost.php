@@ -32,7 +32,7 @@
             if (move_uploaded_file($_FILES['imagem']['tmp_name'], $uploadfile)) {
                 echo "Imagem enviada com sucesso";
             } else {
-                echo "Erro ao enviar a imagem";
+                echo "Erro ao enviar a imagem"; ?><br> <?php
             }
 
             // Executando a query após a definição das variáveis
