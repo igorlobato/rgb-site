@@ -93,6 +93,10 @@ $(function() {
                                         var comentariosPost = comentarios.filter(function(comentario) {
                                             return comentario.id_post === postagem.id;
                                         });
+
+                                        var comentariosCount = comentarios.filter(function(comentario) {
+                                            return comentario.id_post === postagem.id;
+                                        }).length;
         
                                         var comentariosHTML = '<ul>';
                                         $.each(comentariosPost, function(j, comentario) {
@@ -110,13 +114,15 @@ $(function() {
         
                                     $postagens.append(
                                         '<br><div class="topico">' + postagem.topico +
-                                        '</div><div class="titulo"><a href="?pagina=posts&id=' + postagem.id + '">' + postagem.titulo + '</a>' +
+                                        '</div><div class="titulo"><a href="posts.php?id=' + postagem.id + '">' + postagem.titulo + '</a>' +
                                         '</div><br>' + imagemHTML + '<br>' +
                                         '</div><div class="descricao">' + postagem.descricao +
-                                        '</div><br> data: ' + postagem.data +
-                                        '<br> hora: ' + postagem.hora +
-                                        '<br> postador: ' + postagem.postador +
-                                        '<br> Curtidas: ' + likesCount +
+                                        '</div><br><span class="posttexto">Data: </span>' + postagem.data +
+                                        '<br><span class ="posttexto">Hora: </span>' + postagem.hora +
+                                        '<br><span class="posttexto">Postador: </span>' + postagem.postador +
+                                        '<br><span class="posttexto">Curtidas: </span>' + likesCount +
+                                        '<br><button class="btn btn-primary btn-like" data-post-id="' + postagem.id + '">Curtir</button>' +
+                                        '<br><span class="posttexto">Comentários: </span>' + comentariosCount +
                                         '</div><hr>');
                                 },
                                 error: function() {
@@ -136,6 +142,31 @@ $(function() {
         });
     }
 });
+
+$(document).on('click', '.btn-like', function() {
+    var postId = $(this).data('post-id');
+
+    $.ajax({
+        type: 'POST',
+        url: 'curtir_post.php',
+        data: { id_post: postId },
+        dataType: 'json', // Especifica o tipo de dado esperado do servidor
+        success: function(response) {
+            console.log(response); // Loga a resposta no console para verificar o que está retornando
+            if (response.success) {
+                alert('Você curtiu este post!');
+                location.reload(); // Recarrega a página para atualizar a contagem de curtidas
+            } else {
+                alert(response.message || 'Erro desconhecido ao curtir o post.');
+            }
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            console.error('Erro no AJAX:', textStatus, errorThrown); // Loga o erro no console
+            alert('Erro ao tentar curtir o post.');
+        }
+    });
+});
+
 
 function adicionarComentario(idPost) {
     var novoComentario = $('#novoComentario' + idPost).val();

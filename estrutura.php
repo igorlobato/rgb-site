@@ -8,7 +8,7 @@ if(!isset($_SESSION)) {
   session_start();
 }
 ?>
-
+<meta charset="UTF-8">
 <link rel="shortcut icon" type="imagex/png" href="imagens/logo.png">
 <nav class="navbar navbar-expand-lg bg-dark" style="z-index: 2;">
 			<div class="container-fluid">

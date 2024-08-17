@@ -35,3 +35,8 @@
   font-size: xx-large;
   font-weight: bold;
 }
+
+.posttexto{
+  font-weight: bold;
+  white-space: nowrap;
+}

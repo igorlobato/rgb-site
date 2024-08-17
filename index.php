@@ -1,4 +1,10 @@
-<?php include 'estrutura.php';?>
+<?php include 'estrutura.php';
+
+if (isset($_GET['id'])) {
+    header('Location: posts.php?id=' . $_GET['id']);
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,5 +26,6 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 	<script src ="javascript/main.js"></script>
+    <script src ="javascript/scriptsfuncao.js"></script>
 </body>
 </html>
