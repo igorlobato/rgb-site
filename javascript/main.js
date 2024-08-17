@@ -102,16 +102,22 @@ $(function() {
                                     } else {
                                         comentariosHTML = 'Sem comentários';
                                     }
+
+                                    var imagemHTML = '';
+                                    if (postagem.imagem && postagem.imagem.trim() !== '') {
+                                        imagemHTML = '<br><br> <img src="' + postagem.imagem + '" alt="Imagem" class="foto"> <br>';
+                                    }
         
-                                    $postagens.append('<div>Titulo: <a href="?pagina=posts&id=' + postagem.id + '">' + postagem.titulo + '</a>' +
-                                        '<br> Tópico: ' + postagem.topico +
-                                        '<br> Descricao: ' + postagem.descricao +
-                                        '<br><br> <img src="' + postagem.imagem + '" alt="Imagem" class="foto"> <br>' +
-                                        '<br> data: ' + postagem.data +
+                                    $postagens.append(
+                                        '<br><div class="topico">' + postagem.topico +
+                                        '</div><div class="titulo"><a href="?pagina=posts&id=' + postagem.id + '">' + postagem.titulo + '</a>' +
+                                        '</div><br>' + imagemHTML + '<br>' +
+                                        '</div><div class="descricao">' + postagem.descricao +
+                                        '</div><br> data: ' + postagem.data +
                                         '<br> hora: ' + postagem.hora +
                                         '<br> postador: ' + postagem.postador +
                                         '<br> Curtidas: ' + likesCount +
-                                        '</div><br>');
+                                        '</div><hr>');
                                 },
                                 error: function() {
                                     alert('Erro ao carregar comentários');

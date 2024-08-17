@@ -28,3 +28,10 @@
 .nome-user{
   color:rgb(255, 255, 255);
 }
+
+/*Características dos posts*/
+
+.topico{
+  font-size: xx-large;
+  font-weight: bold;
+}

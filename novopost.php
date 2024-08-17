@@ -25,15 +25,18 @@
             $data = date("d/m/Y");
             $hora = date("H:i:s");
 
+            $imagename = '';
+
+            if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] == UPLOAD_ERR_OK) {
             $uploaddir = 'imagens/uploads/';
             $uploadfile = $uploaddir . basename($_FILES['imagem']['name']);
             $imagename = $uploaddir . basename($_FILES['imagem']['name']);
 
             if (move_uploaded_file($_FILES['imagem']['tmp_name'], $uploadfile)) {
-                echo "Imagem enviada com sucesso";
+                echo "Imagem enviada com sucesso";?><br><?php
             } else {
                 echo "Erro ao enviar a imagem"; ?><br> <?php
-            }
+            }}
 
             // Executando a query após a definição das variáveis
             $sql = "INSERT INTO Posts (titulo, descricao, imagem, data, hora, postador, topico)

@@ -12,7 +12,7 @@
 
 <body>
     <div class="main-content">
-        <h2>Posts mais recentes</h2>
+        <h2>Posts</h2>
         <br>
         <ul id="postagens"></ul>
     </div>
